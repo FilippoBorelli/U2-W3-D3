@@ -24,8 +24,8 @@ const getBook = function(){
         <img src="${book.img}" class="card-img-top" alt="img">
         <div class="card-body">
           <h5 class="card-title">${book.title}</h5>
-          <p class="card-text">Book price: ${book.price}</p>
-          <button class="btn btn-primary" id="button">Delete</button>
+          <p class="card-text">Prezzo: ${book.price}</p>
+          <button class="btn btn-primary" id="button">Scarta</button>
         </div>
       </div>
         `
