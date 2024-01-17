@@ -15,22 +15,27 @@ const getBook = function(){
     .then((data) => {
         console.log("data", data)
         const row = document.getElementById("row")
-        data.forEach((book) => {
+        data.forEach((book, i) => {
         const newCol = document.createElement('div')
         newCol.classList.add('col')
 
         newCol.innerHTML = `
-        <div class="card" style="width: 18rem; height: 100">
-        <img src="${book.img}" class="card-img-top" alt="img">
+        <div class="card" style="width: 18rem; height: 40em">
+        <img src="${book.img}" class="card-img-top" style="height: 30em" alt="img">
         <div class="card-body">
-          <h5 class="card-title">${book.title}</h5>
-          <p class="card-text">Prezzo: ${book.price}</p>
-          <button class="btn btn-primary" id="button">Scarta</button>
+        <h5 class="card-title">${book.title}</h5>
+        <p class="card-text">Prezzo: ${book.price}€</p>
+        <button class="btn btn-primary" id="button${i}">Scarta</button>
         </div>
-      </div>
+        </div>
         `
         row.appendChild(newCol)
-        })
+
+        const buttonDelete = document.getElementById("button" + i)
+        buttonDelete.addEventListener("click", function(){
+          buttonDelete.closest(".col").remove()
+      })
+      })
     })
     .catch((err) => {
         console.log("errore", err)
